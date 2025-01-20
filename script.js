@@ -18,12 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 {
                     title: "Project Two (FrontEnd): GYM Members registration and booking Page",
                     description: "The objective of this system is to provide a convenient and efficient way for gym members to reserve spots in fitness classes offered at the gym. This system is enable members to easily browse through available classes and schedules, and make reservations for the classes they wish to attend. built with PHP",
-                    link: "https://gymadmin-c0fe9b04e8a8.herokuapp.com/"
+                    link: "https://maigrop.com/almacenters/"
                 },
                 {
                     title: "Project Two (BackEnd): GYM Admin dashboard",
-                    description: "The gym class booking system  allow gym administrators to manage class schedules, set class capacities, and track attendance. This system is providing real-time updates on class availability and allow for automated waitlist management. built with PHP-Cpanel (User Name: admin,  Password: admin)",
-                    link: "https://gymadmin-c0fe9b04e8a8.herokuapp.com/m_cpanel/"
+                    description: "The gym class booking system  allow gym administrators to manage class schedules, set class capacities, and track attendance. This system is providing real-time updates on class availability and allow for automated waitlist management. built with cpanel (User Name: admin,  Password: admin)",
+                    link: "https://maigrop.com/almacenters/"
                 },
                 {
                     title: "Project Three: Online Food & Beverage Menu",
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 {
                     title: "Project Four: Al Raedah Finance About Page",
                     description: "About Page with devise and devise active admin (Login system for user and admin) for AlRaedah Finance Company Using Ruby On Rails framework with Render for hosting and deployment.",
-                    link: "https://raedahfinance-0668740915a9.herokuapp.com"
+                    link: "https://alraedah.sa/en/"
                 }
             ],
             contactTitle: "Contact",
