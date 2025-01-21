@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           title: "Project One: Connect Four Game",
           description:
-            "The objective of a Connect Four game is to provide an engaging and challenging game for players of all ages. The game is easy to learn, but provide enough strategy and depth to keep players engaged and coming back for more. built with HTML, CSS, Javascriopt.",
+            "The objective of a Connect Four game is to provide an engaging and challenging game for players of all ages. The game is easy to learn, but provide enough strategy and depth to keep players engaged and coming back for more. built with HTML, CSS, Javascript.",
           link: "https://ahmadalarif.github.io/connect4/",
         },
         {
@@ -131,6 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const projectLink = document.createElement("a");
       projectLink.classList.add("text-blue-600");
       projectLink.href = project.link;
+      projectLink.target = "_blank";
       projectLink.textContent = lang === "en" ? "View Project" : "عرض المشروع";
 
       projectItem.appendChild(projectTitle);
