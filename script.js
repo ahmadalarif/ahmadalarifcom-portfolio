@@ -143,8 +143,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const projectLink = document.createElement("a");
       projectLink.classList.add("text-blue-600");
       projectLink.href = project.link;
-      projectLink.target = "_blank";
-      projectLink.onClick();
       projectLink.textContent = lang === "en" ? "View Project" : "عرض المشروع";
 
       projectItem.appendChild(projectTitle);
