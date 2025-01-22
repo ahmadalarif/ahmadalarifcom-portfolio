@@ -42,6 +42,12 @@ document.addEventListener("DOMContentLoaded", () => {
             "About Page with devise and devise active admin (Login system for user and admin) for AlRaedah Finance Company Using Ruby On Rails framework with Render for hosting and deployment.",
           link: "https://alraedah.sa/en/",
         },
+        {
+          title: "Project Five: React Calculator App(inside class project)",
+          description:
+            "A simple calculator app created while i'm studying.",
+          link: "https://reactcalculatorapp1.netlify.app/",
+        },
       ],
       contactTitle: "Contact",
       contact: {
@@ -90,6 +96,12 @@ document.addEventListener("DOMContentLoaded", () => {
           description:
             "المشروع عبارة عن صفحة تعريف لشركة الرائدة المالية بنظام تسجيل دخول لمستخدمين ومسؤولين وبصفحة خاصة للمسؤول لإضافة وحذف المستخدمين وتعديل المعلومات مع إمكانية تنزيل الملفات بصيغة (بي دي اف او اكسل) باستخدام إطار عمل روبي اون ريلز",
           link: "https://alraedah.sa/en/",
+        },
+        {
+          title: "المشروع الخامس: مشروع إنشاء تطبيق آلة حاسبة(داخل الفصل الدراسي)",
+          description:
+            "بناء تطبيق لآلة حاسبة بسيطة لغرض التعلم.",
+          link: "https://reactcalculatorapp1.netlify.app/",
         },
       ],
       contactTitle: "تواصل معي",
