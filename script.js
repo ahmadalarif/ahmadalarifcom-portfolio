@@ -94,12 +94,12 @@ document.addEventListener("DOMContentLoaded", () => {
             "منصة كاملة لإدارة طلبات الطعام مع تتبع الطلبات. تم البناء باستخدام Gatsby (React) للواجهة الأمامية وContentful لإدارة المحتوى.",
           link: "https://awesome-varahamihira-16b9b2.netlify.app/",
         },
-        {
-          title: "بوابة شركة التمويل",
-          description:
-            "بوابة عملاء آمنة لشركة خدمات مالية مع إدارة المستندات. تم البناء باستخدام Ruby on Rails والنشر على Render.",
-          link: "https://alraedah.sa/en/",
-        },
+        // {
+        //   title: "بوابة شركة التمويل",
+        //   description:
+        //     "بوابة عملاء آمنة لشركة خدمات مالية مع إدارة المستندات. تم البناء باستخدام Ruby on Rails والنشر على Render.",
+        //   link: "https://alraedah.sa/en/",
+        // },
         {
           title: "تطبيق آلة حاسبة",
           description:
