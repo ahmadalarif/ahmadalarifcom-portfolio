@@ -46,12 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
             "Full-stack food ordering platform with menu customization and order tracking. Built with Gatsby (React) frontend and Contentful CMS backend.",
           link: "https://awesome-varahamihira-16b9b2.netlify.app/",
         },
-        // {
-        //   title: "Finance Company Portal",
-        //   description:
-        //     "Secure client portal for financial services company with document management features. Built with Ruby on Rails and deployed on Render.",
-        //   link: "https://alraedah.sa/en/",
-        // },
         {
           title: "React Calculator App",
           description:
