@@ -32,13 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
           title: "GYM Management System (Frontend)",
           description:
             "Member-facing interface for class registration and booking system. Features real-time availability updates and calendar integration. Developed with PHP and MySQL.",
-          link: "https://maigrop.com/almacenters/",
+          link: "https://fitness.yottaline.com/",
         },
         {
-          title: "GYM Management System (Backend)",
+          title: "GYM Management System (Admin Panel)",
           description:
             "Admin dashboard with class scheduling, attendance tracking, and waitlist management. Secure authentication system with role-based access control.",
-          link: "https://maigrop.com/almacenters/",
+          link: "https://fitness.yottaline.com/m_cpanel/",
         },
         {
           title: "Online Food Ordering System",
@@ -52,6 +52,19 @@ document.addEventListener("DOMContentLoaded", () => {
             "Interactive calculator application demonstrating React state management and component architecture.",
           link: "https://reactcalculatorapp1.netlify.app/",
         },
+        {
+          title: "Al Fahad Maintenance Company Website",
+          description:
+            "Corporate website for Al Fahad Maintenance Company showcasing services and contact information. Built with HTML, CSS, and JavaScript.",
+          link: "https://alfahadmaintenance.com/",
+        },
+        {
+          title: "Golden Loaft Logistics Website",
+          description:
+            "Professional website for Golden Loaft Logistics highlighting logistics solutions and client testimonials. Developed using modern web technologies.",
+          link: "https://goldenloaft.com/",
+        },
+        
       ],
       contactTitle: "Contact",
       contact: {
