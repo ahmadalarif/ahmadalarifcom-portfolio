@@ -113,6 +113,18 @@ document.addEventListener("DOMContentLoaded", () => {
             "آلة حاسبة تفاعلية توضح إدارة الحالة وهندسة المكونات في ريأكت.",
           link: "https://reactcalculatorapp1.netlify.app/",
         },
+        {
+          title: "صفحة شركة الفهد للصيانة",
+          description:
+            "صفحة تعريفية لشركة الفهد للصيانة تم بناؤها باستخدام HTML,Javascript,CSS",
+          link: "https://alfahadmaintenance.com",
+        },
+        {
+          title: "صفحة تعريفية لشركة لوافت الذهبية للخدمات اللوجستية",
+          description:
+            "صفحة تعريفية لشركة اللوافت الذهبية للخدمات اللوجستية توضح الخدمات وبيانات عن الشركة تم بناء الصفحة باستخدام HTML, Javascript,CSS",
+          link: "https://goldenloaft.com",
+        },
       ],
       contactTitle: "تواصل معي",
       contact: {
