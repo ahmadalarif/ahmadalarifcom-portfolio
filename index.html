@@ -25,6 +25,8 @@
       background: rgba(44, 62, 80, 0.9);
       border: 1px solid #2c3e50;
       color: #ecf0f1;
+      display: flex;
+      flex-direction: column;
       padding: 20px;
       border-radius: 8px;
       opacity: 0;
@@ -42,13 +44,117 @@
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     }
 
-    .whatsapp-button {
-      background-color: #25d366;
-      transition: background-color 0.2s ease;
+    .portfolio-button {
+      align-items: center;
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.95), rgba(37, 99, 235, 0.95));
+      border: 1px solid rgba(125, 211, 252, 0.55);
+      border-radius: 8px;
+      box-shadow: 0 10px 24px rgba(2, 132, 199, 0.24);
+      color: #ffffff;
+      display: inline-flex;
+      font-weight: 700;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.7rem 1rem;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
 
-    .whatsapp-button:hover {
-      background-color: #128c7e;
+    .portfolio-button:hover {
+      border-color: rgba(186, 230, 253, 0.92);
+      box-shadow: 0 14px 30px rgba(2, 132, 199, 0.34);
+      transform: translateY(-2px);
+    }
+
+    .portfolio-button:focus-visible {
+      outline: 3px solid rgba(125, 211, 252, 0.42);
+      outline-offset: 3px;
+    }
+
+    .portfolio-button.secondary {
+      background: rgba(15, 23, 42, 0.74);
+      border-color: rgba(148, 163, 184, 0.44);
+      box-shadow: 0 10px 24px rgba(2, 6, 23, 0.24);
+    }
+
+    .portfolio-button.whatsapp-button {
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      border-color: rgba(187, 247, 208, 0.55);
+      box-shadow: 0 10px 24px rgba(18, 140, 126, 0.24);
+    }
+
+    .portfolio-button.youtube-button {
+      background: linear-gradient(135deg, #ef4444, #b91c1c);
+      border-color: rgba(254, 202, 202, 0.5);
+      box-shadow: 0 10px 24px rgba(185, 28, 28, 0.24);
+    }
+
+    .project-link {
+      margin-top: auto;
+      width: fit-content;
+    }
+
+    .project-preview {
+      aspect-ratio: 16 / 9;
+      background: #020617;
+      border: 1px solid rgba(125, 211, 252, 0.22);
+      border-radius: 8px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .project-preview video {
+      display: block;
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .video-showcase {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(12, 74, 110, 0.72));
+      border: 1px solid rgba(125, 211, 252, 0.24);
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 18px 42px rgba(2, 6, 23, 0.34);
+    }
+
+    .video-card {
+      background: rgba(15, 23, 42, 0.76);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .video-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(125, 211, 252, 0.72);
+    }
+
+    .video-card video {
+      aspect-ratio: 16 / 9;
+      background: #020617;
+      display: block;
+      width: 100%;
+    }
+
+    .video-card.mobile-demo video {
+      aspect-ratio: 9 / 16;
+      max-height: 560px;
+      object-fit: contain;
+    }
+
+    .video-meta {
+      padding: 16px;
+    }
+
+    .video-kicker {
+      color: #7dd3fc;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
     }
 
     .whatsapp-button img {
@@ -65,9 +171,6 @@
     .social-link {
       display: inline-flex;
       align-items: center;
-      padding: 0.5rem 1rem;
-      border-radius: 0.375rem;
-      transition: all 0.3s ease;
     }
 
     .social-link svg {
@@ -80,6 +183,8 @@
 
     @media (prefers-reduced-motion: reduce) {
       .project-item,
+      .video-card,
+      .portfolio-button,
       .whatsapp-button img {
         transition: none;
       }
@@ -127,11 +232,11 @@
       </div>
       <button 
   id="language-toggle" 
-  class="px-4 py-2 bg-blue-600 rounded hover:bg-blue-700 transition-colors flex items-center"
+  class="portfolio-button"
 >
   <!-- Globe Icon -->
   <svg 
-    xmlns="https://www.w3.org/2000/svg" 
+    xmlns="http://www.w3.org/2000/svg" 
     class="h-5 w-5 mr-2 ml-2 rtl:mr-0 rtl:ml-2" 
     fill="none" 
     viewBox="0 0 24 24" 
@@ -163,6 +268,100 @@
     <section id="projects" class="mb-12">
       <h2 id="projects-title" class="text-2xl font-bold mb-4 text-blue-300"></h2>
       <div id="project-list" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
+    </section>
+
+    <!-- Generated Videos Section -->
+    <section id="generated-videos" class="mb-12 video-showcase">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-6">
+        <div>
+          <p id="videos-kicker" class="video-kicker mb-2"></p>
+          <h2 id="videos-title" class="text-2xl font-bold text-blue-100"></h2>
+        </div>
+        <p id="videos-intro" class="text-gray-300 max-w-2xl"></p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2">
+        <article class="video-card">
+          <video controls muted playsinline preload="metadata">
+            <source src="/generated-videos/bjhoney-web--bjhoney1-us-central1-hosted-app-1785344337451.webm" type="video/webm">
+          </video>
+          <div class="video-meta">
+            <h3 id="video-one-title" class="text-lg font-bold text-white mb-2"></h3>
+            <p id="video-one-text" class="text-gray-300 text-sm leading-relaxed"></p>
+          </div>
+        </article>
+        <article class="video-card">
+          <video controls muted playsinline preload="metadata">
+            <source src="/generated-videos/bjhoney-web--bjhoney1-us-central1-hosted-app-1785344424197.webm" type="video/webm">
+          </video>
+          <div class="video-meta">
+            <h3 id="video-two-title" class="text-lg font-bold text-white mb-2"></h3>
+            <p id="video-two-text" class="text-gray-300 text-sm leading-relaxed"></p>
+          </div>
+        </article>
+        <article class="video-card mobile-demo">
+          <video controls muted playsinline preload="metadata">
+            <source src="/generated-videos/BJH_ios.mov" type="video/quicktime">
+          </video>
+          <div class="video-meta">
+            <h3 id="video-three-title" class="text-lg font-bold text-white mb-2"></h3>
+            <p id="video-three-text" class="text-gray-300 text-sm leading-relaxed"></p>
+          </div>
+        </article>
+        <article class="video-card mobile-demo">
+          <video controls muted playsinline preload="metadata">
+            <source src="/generated-videos/BJH_Android.mov" type="video/quicktime">
+          </video>
+          <div class="video-meta">
+            <h3 id="video-four-title" class="text-lg font-bold text-white mb-2"></h3>
+            <p id="video-four-text" class="text-gray-300 text-sm leading-relaxed"></p>
+          </div>
+        </article>
+        <article class="video-card">
+          <video controls muted playsinline preload="metadata">
+            <source src="/generated-videos/alma-center1-com-1785605192855.webm" type="video/webm">
+          </video>
+          <div class="video-meta">
+            <h3 id="video-five-title" class="text-lg font-bold text-white mb-2"></h3>
+            <p id="video-five-text" class="text-gray-300 text-sm leading-relaxed"></p>
+          </div>
+        </article>
+        <article class="video-card">
+          <video controls muted playsinline preload="metadata">
+            <source src="/generated-videos/creative-tracks-marine-db-web-app-1785605222395.webm" type="video/webm">
+          </video>
+          <div class="video-meta">
+            <h3 id="video-six-title" class="text-lg font-bold text-white mb-2"></h3>
+            <p id="video-six-text" class="text-gray-300 text-sm leading-relaxed"></p>
+          </div>
+        </article>
+        <article class="video-card">
+          <video controls muted playsinline preload="metadata">
+            <source src="/generated-videos/homeservicesapp11-web-app-1785605260473.webm" type="video/webm">
+          </video>
+          <div class="video-meta">
+            <h3 id="video-seven-title" class="text-lg font-bold text-white mb-2"></h3>
+            <p id="video-seven-text" class="text-gray-300 text-sm leading-relaxed"></p>
+          </div>
+        </article>
+        <article class="video-card">
+          <video controls muted playsinline preload="metadata">
+            <source src="/generated-videos/alfahadmaintenance-com-1785606567836.webm" type="video/webm">
+          </video>
+          <div class="video-meta">
+            <h3 id="video-eight-title" class="text-lg font-bold text-white mb-2"></h3>
+            <p id="video-eight-text" class="text-gray-300 text-sm leading-relaxed"></p>
+          </div>
+        </article>
+        <article class="video-card">
+          <video controls muted playsinline preload="metadata">
+            <source src="/generated-videos/goldenloaft-com-1785606593639.webm" type="video/webm">
+          </video>
+          <div class="video-meta">
+            <h3 id="video-nine-title" class="text-lg font-bold text-white mb-2"></h3>
+            <p id="video-nine-text" class="text-gray-300 text-sm leading-relaxed"></p>
+          </div>
+        </article>
+      </div>
     </section>
 
     <!-- Contact Section -->
@@ -197,7 +396,7 @@
         </div>
         <button type="submit" 
                 id="contact-submit"
-                class="w-full px-4 py-2 bg-blue-600 rounded hover:bg-blue-700 transition-colors"
+                class="portfolio-button w-full"
                 target="_blank"
                 >
         </button>
@@ -205,7 +404,7 @@
       <div class="mt-6 text-center">
         <a href="https://wa.me/966565606064"
            id="whatsapp-button"
-           class="whatsapp-button inline-flex items-center px-4 py-2 rounded"
+           class="portfolio-button whatsapp-button"
            target="_blank"
            rel="noopener noreferrer">
           <img src="/assets/WhatsApp.svg"
@@ -220,7 +419,7 @@
       <div class="mt-8 flex flex-col sm:flex-row gap-4">
         <!-- LinkedIn Button -->
         <a href="https://www.linkedin.com/in/ahmadalarif/" 
-           class="social-link px-4 py-2 rounded inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 transition-colors text-white"
+           class="portfolio-button social-link"
            target="_blank"
            rel="noopener noreferrer">
           <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -231,7 +430,7 @@
       
         <!-- GitHub Button -->
         <!-- <a href="https://github.com/ahmadalarif" 
-           class="social-link px-4 py-2 rounded inline-flex items-center justify-center bg-gray-800 hover:bg-gray-700 transition-colors text-white"
+           class="portfolio-button social-link secondary"
            target="_blank"
            rel="noopener noreferrer">
           <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -242,7 +441,7 @@
       
         <!-- New YouTube Button -->
         <a href="https://www.youtube.com/channel/UCOm-gdbe9NdoKMLBZ_I4bvw" 
-           class="social-link px-4 py-2 rounded inline-flex items-center justify-center bg-red-600 hover:bg-red-700 transition-colors text-white"
+           class="portfolio-button social-link youtube-button"
            target="_blank"
            rel="noopener noreferrer">
           <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">

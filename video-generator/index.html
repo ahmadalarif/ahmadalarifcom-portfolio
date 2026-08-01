@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Website Video Generator</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background:
+        linear-gradient(rgba(2, 6, 23, 0.88), rgba(2, 6, 23, 0.92)),
+        url("/assets/ahmad-arif-portfolio-background.webp") no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+    }
+
+    .generator-shell {
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid rgba(125, 211, 252, 0.28);
+      border-radius: 8px;
+      box-shadow: 0 24px 60px rgba(2, 6, 23, 0.46);
+      backdrop-filter: blur(6px);
+    }
+
+    .generator-input {
+      background: rgba(226, 232, 240, 0.96);
+      border: 1px solid rgba(125, 211, 252, 0.4);
+      border-radius: 8px;
+      color: #0f172a;
+      outline: none;
+    }
+
+    .generator-input:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.22);
+    }
+
+    .generator-button,
+    .generator-link {
+      align-items: center;
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.95), rgba(37, 99, 235, 0.95));
+      border: 1px solid rgba(125, 211, 252, 0.55);
+      border-radius: 8px;
+      box-shadow: 0 10px 24px rgba(2, 132, 199, 0.24);
+      color: #ffffff;
+      display: inline-flex;
+      font-weight: 700;
+      justify-content: center;
+      min-height: 46px;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .generator-button:hover,
+    .generator-link:hover {
+      border-color: rgba(186, 230, 253, 0.92);
+      box-shadow: 0 14px 30px rgba(2, 132, 199, 0.34);
+      transform: translateY(-2px);
+    }
+
+    .generator-button:focus-visible,
+    .generator-link:focus-visible {
+      outline: 3px solid rgba(125, 211, 252, 0.42);
+      outline-offset: 3px;
+    }
+
+    .generator-button:disabled {
+      cursor: wait;
+      opacity: 0.62;
+      transform: none;
+    }
+
+    .generator-link {
+      background: linear-gradient(135deg, #22c55e, #15803d);
+      border-color: rgba(187, 247, 208, 0.55);
+      box-shadow: 0 10px 24px rgba(21, 128, 61, 0.24);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .generator-button,
+      .generator-link {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-gray-900 text-white">
+  <main class="max-w-3xl mx-auto px-5 py-16">
+    <section class="generator-shell p-7">
+      <p class="text-sky-300 text-sm font-bold uppercase mb-2">
+        Hidden portfolio tool
+      </p>
+      <h1 class="text-3xl font-bold text-blue-300 mb-3">
+        Application Video Generator
+      </h1>
+
+      <p class="text-gray-300 mb-6">
+        Enter your application domain to create an automatic video
+        demonstration.
+      </p>
+
+      <form id="generator-form" class="space-y-4">
+        <div>
+          <label for="domain" class="block mb-2 font-semibold">
+            Application domain
+          </label>
+
+          <input
+            id="domain"
+            name="domain"
+            type="text"
+            placeholder="example.com"
+            class="generator-input w-full p-3"
+            required
+          >
+        </div>
+
+        <button
+          id="generate-button"
+          type="submit"
+          class="generator-button w-full px-5 py-3"
+        >
+          Generate Video
+        </button>
+      </form>
+
+      <p
+        id="status-message"
+        class="mt-5 text-blue-200"
+        aria-live="polite"
+      ></p>
+
+      <div id="result" class="hidden mt-8">
+        <h2 class="text-xl font-bold mb-3">
+          Generated demonstration
+        </h2>
+
+        <video
+          id="generated-video"
+          class="w-full rounded-lg bg-black"
+          controls
+          muted
+          playsinline
+        ></video>
+
+        <a
+          id="video-link"
+          class="generator-link mt-4 px-5 py-2"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open Video
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById("generator-form");
+    const domainInput = document.getElementById("domain");
+    const generateButton = document.getElementById("generate-button");
+    const statusMessage = document.getElementById("status-message");
+    const result = document.getElementById("result");
+    const video = document.getElementById("generated-video");
+    const videoLink = document.getElementById("video-link");
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const domain = domainInput.value.trim();
+
+      if (!domain) {
+        statusMessage.textContent = "Please enter a domain.";
+        return;
+      }
+
+      generateButton.disabled = true;
+      generateButton.textContent = "Generating...";
+      statusMessage.textContent =
+        "Opening the website and recording the demonstration.";
+
+      result.classList.add("hidden");
+
+      try {
+        const response = await fetch("/api/generate-video", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ domain })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+          throw new Error(data.message || "Video generation failed.");
+        }
+
+        video.src = data.videoUrl;
+        videoLink.href = data.videoUrl;
+
+        result.classList.remove("hidden");
+        statusMessage.textContent =
+          `Video created for ${data.domain}.`;
+
+        await video.play().catch(() => {
+          // The visitor can start playback manually.
+        });
+      } catch (error) {
+        statusMessage.textContent = error.message;
+      } finally {
+        generateButton.disabled = false;
+        generateButton.textContent = "Generate Video";
+      }
+    });
+  </script>
+</body>
+</html>

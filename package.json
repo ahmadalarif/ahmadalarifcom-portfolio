@@ -1,0 +1,12 @@
+{
+  "name": "ahmadalarifcom-portfolio-video",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node video-generator-server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "playwright": "^1.62.0"
+  }
+}
